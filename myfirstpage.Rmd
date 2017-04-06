@@ -1,0 +1,15 @@
+---
+title: US States Visited till date
+output: html_document
+---
+##March 15, 2017
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(leaflet)
+greenLeafIcon <- makeIcon(
+  iconUrl = "https://cdn0.iconfinder.com/data/icons/ie_Bright/512/binoculars.png",
+  iconWidth = 14, iconHeight = 14)
+popUpText <- c("Went in year 2011", "Went in year 2011", "Went in year 2011", "Went in year 2016", "Went in year 2016", "Went in year 2011", "Went in year 2011", "Went in year 2016", "Went in year 2012", "Went in year 2011", "Went in year 2011", "Went in year 2012")
+placesIVisited <- data.frame(name=c("New York", "PA", "New Jersey", "MaryLand", "DC", "Florida", "Georgia", "Illinois", "California", "Nevada", "Washington", "Hawai"), lat= c(40.7128,41.2033, 40.0583, 39.0458, 38.9072,27.6648,32.1656,40.6331, 36.7783, 38.8026,47.7511, 19.8968 ), lng=c(-74.0059,-77.1945, -74.4057, -76.6413,-77.0369,-81.5158,-82.9001,-89.3985,-119.4179, -116.4194,-120.7401,-155.5828 ))
+
+placesIVisited %>% leaflet() %>% addTiles() %>% addMarkers(icon= greenLeafIcon, popup = popUpText)
+```
